@@ -4,6 +4,8 @@ const url = require('url');
 const Utils = require('./modules/Utils');
 const MessageCatalog = require('./lang/en/en');
 
+const PORT = process.env.PORT || 8080;
+
 class ServerApp 
 {
     constructor()
@@ -29,9 +31,10 @@ class ServerApp
             }
         });
 
-        server.listen(port, () => {
-            console.log(`Server running at http://localhost:${port}`);
-        });
+        server.listen(PORT, () => {
+            console.log(`Server running on port ${PORT}`);
+    });
+
     }
 
     _handleGetDate(req, res, query) {
